@@ -20,3 +20,14 @@ C:\Users\Anna Kądziera\Downloads\projekt\projekt_RLC\projekt_RLC\obj\Debug\proj
 C:\Users\Anna Kądziera\Downloads\projekt\projekt_RLC\projekt_RLC\obj\Debug\projekt_RLC.csproj.CoreCompileInputs.cache
 C:\Users\Anna Kądziera\Downloads\projekt\projekt_RLC\projekt_RLC\obj\Debug\projekt_RLC.exe
 C:\Users\Anna Kądziera\Downloads\projekt\projekt_RLC\projekt_RLC\obj\Debug\projekt_RLC.pdb
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\bin\Debug\projekt_RLC.exe.config
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\bin\Debug\projekt_RLC.exe
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\bin\Debug\projekt_RLC.pdb
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.csprojResolveAssemblyReference.cache
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.RLC.resources
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.Properties.Resources.resources
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.Resource1.resources
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.csproj.GenerateResource.Cache
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.csproj.CoreCompileInputs.cache
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.exe
+C:\Users\Anna Kądziera\Downloads\projektfuuu\projekt\projekt_RLC.puuup\projekt_RLC\obj\Debug\projekt_RLC.pdb

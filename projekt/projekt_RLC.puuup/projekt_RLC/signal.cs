@@ -8,6 +8,8 @@ namespace projekt_RLC
 {
     class signal
     {
+        public diode our_diode = new diode();
+        
         public List<double> getVoltageSignal()
         {
             return _signalVoltageList;
@@ -43,21 +45,32 @@ namespace projekt_RLC
         }
         private void CalculateCurrent(double R, double L, double C, int sample_freq)
         {
-            double Rd = 0.02;
+           
 
             _signalCurrentList.Clear();
             for (int i = 0; i < _signalVoltageList.Count(); i++)
             {
-                //double wartosc = _signalVoltageList[i];
-               
-                double wartosc = _signalVoltageList[i]/(R+(1/sample_freq)*L+(1/C)*sample_freq+Rd);
+                double wartosc = 0;
+                if (_signalVoltageList[i] > 0.7)
+                {
+                    wartosc = _signalVoltageList[i] / (R + (1 / _signalVoltageList[i]) * L + (1 / C) * _signalVoltageList[i] + our_diode.getRes());
+                }
 
-                
-                //tu trzeba policzyć prąd wstawic wzor itd
+
 
                 _signalCurrentList.Add(wartosc);
             }
         }
+
+        public void CalculateDiodeVoltage()
+        {   
+            for (int i = 0; i < _signalCurrentList.Count(); i++)
+            { 
+                double wartosc = _signalCurrentList[i] * our_diode.getRes();
+                our_diode._diodeVoltage.Add(wartosc);
+            }
+        }
+
 
         private void CalculateResistorVoltage(double R)
         {
@@ -72,15 +85,23 @@ namespace projekt_RLC
         {    
             _capacitorVoltage.Clear();
             for (int i = 0; i < _signalCurrentList.Count()-1; i++)
-            {
+            { 
 
-                //double wartosc = Operations.Integral(_signalCurrentList[i],_signalCurrentList[i+1], sample_freq)/C;
-                double wartosc = Operations.Integral(_signalCurrentList[i], _signalCurrentList[i + 1], sample_freq)/C;
+
+                double wartosc = Operations.Integral(_signalCurrentList[i],_signalCurrentList[i+1], sample_freq)/C;
+                
                 _capacitorVoltage.Add(wartosc);
             }
         }
 
         
+        private void CalculateVoltage(double C, double L, double R, int n_samples)
+        {
+            CalculateCapacitorVoltage(C, n_samples);
+            CalculateInductorVoltage(L);
+            CalculateResistorVoltage(R);
+            CalculateDiodeVoltage();
+        }
         private void CalculateInductorVoltage(double L)
         {
             _inductorVoltage.Clear();
@@ -128,16 +149,15 @@ namespace projekt_RLC
                     break;
                     
             }
+
             _signalVoltageList.AddRange(_signalVoltageList);
-            /* _signalVoltageList.AddRange(_signalVoltageList);
-             _signalVoltageList.AddRange(_signalVoltageList);*/
+            _signalVoltageList.AddRange(_signalVoltageList);
+            _signalVoltageList.AddRange(_signalVoltageList);
 
-            
 
-            CalculateCurrent(R,L,C,n_samples);
-            CalculateCapacitorVoltage(C,n_samples);
-            CalculateInductorVoltage(L);
-            CalculateResistorVoltage(R);
+
+            CalculateCurrent(R, L, C, n_samples);
+            CalculateVoltage(C, L, R, n_samples);
 
         }
 

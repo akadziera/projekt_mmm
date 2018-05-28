@@ -17,8 +17,9 @@ namespace projekt_RLC
 
         public static double Integral(double current, double next, int sample_freq)
         {
-            double a_square = current * (1 / sample_freq);
-            double triangle_surface = ((next - current) * (1 / sample_freq) / 2);
+            double dSamplFreq = sample_freq;
+            double a_square = current * (1 / dSamplFreq);
+            double triangle_surface = ((next - current) * (1 / dSamplFreq)/ 2);
             double integration = a_square + triangle_surface;
             return integration;
 

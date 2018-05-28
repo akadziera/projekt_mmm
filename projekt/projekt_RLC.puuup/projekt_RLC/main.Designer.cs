@@ -36,10 +36,12 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer_main = new System.Windows.Forms.Timer(this.components);
             this.button_start = new System.Windows.Forms.Button();
             this.label_counter = new System.Windows.Forms.Label();
@@ -225,9 +227,9 @@
             this.label_freq.Location = new System.Drawing.Point(328, 50);
             this.label_freq.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_freq.Name = "label_freq";
-            this.label_freq.Size = new System.Drawing.Size(93, 13);
+            this.label_freq.Size = new System.Drawing.Size(41, 13);
             this.label_freq.TabIndex = 14;
-            this.label_freq.Text = "Częstotliwość [Hz]";
+            this.label_freq.Text = "delta U";
             // 
             // label_ampl
             // 
@@ -320,9 +322,11 @@
             chartArea4.AxisY.TextOrientation = System.Windows.Forms.DataVisualization.Charting.TextOrientation.Horizontal;
             chartArea4.AxisY.Title = "x3(t)";
             chartArea4.Name = "ChartX3";
+            chartArea5.Name = "ChartX4";
             this.chartVoltages.ChartAreas.Add(chartArea2);
             this.chartVoltages.ChartAreas.Add(chartArea3);
             this.chartVoltages.ChartAreas.Add(chartArea4);
+            this.chartVoltages.ChartAreas.Add(chartArea5);
             legend1.Name = "Legend1";
             this.chartVoltages.Legends.Add(legend1);
             this.chartVoltages.Location = new System.Drawing.Point(559, 10);
@@ -340,9 +344,14 @@
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series4.Legend = "Legend1";
             series4.Name = "SeriesX3";
+            series5.ChartArea = "ChartX4";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "SeriesX4";
             this.chartVoltages.Series.Add(series2);
             this.chartVoltages.Series.Add(series3);
             this.chartVoltages.Series.Add(series4);
+            this.chartVoltages.Series.Add(series5);
             this.chartVoltages.Size = new System.Drawing.Size(875, 733);
             this.chartVoltages.TabIndex = 21;
             this.chartVoltages.Text = "chart1";

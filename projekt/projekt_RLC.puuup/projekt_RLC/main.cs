@@ -15,11 +15,10 @@ namespace projekt_RLC
         double R_value = 10;
         double L_value = 10;
         double C_value = 10;
-        diode our_diode;
         signal input_signal;
         string signal_flag = "square";
 
-        int frequency = 1000;
+        int deltaU = 1000;
         double amplitude = 1;
         int fill = 50;
         public RLC()
@@ -74,14 +73,14 @@ namespace projekt_RLC
             {
                 chartVoltages.Series[1].Points.AddXY(k + 1, input_signal.getInductorVoltage()[k]);
             }
-            /*for (int k = 0; k < input_signal.getCapacitorVoltage().Count; k++)
+            for (int k = 0; k < input_signal.getCapacitorVoltage().Count; k++)
             {
                 chartVoltages.Series[2].Points.AddXY(k + 1, input_signal.getCapacitorVoltage()[k]);
-            }*/
+            }
 
-            for (int k = 0; k < our_diode.getDiodeVoltage().Count; k++)
+            for (int k = 0; k < input_signal.our_diode.getDiodeVoltage().Count; k++)
             {
-                chartVoltages.Series[2].Points.AddXY(k + 1, our_diode.getDiodeVoltage()[k]);
+                chartVoltages.Series[3].Points.AddXY(k + 1, input_signal.our_diode.getDiodeVoltage()[k]);
             }
 
         }
@@ -103,7 +102,7 @@ namespace projekt_RLC
             C_value = Convert.ToDouble(textBox_C_value.Text);
             L_value = Convert.ToDouble(textBox_L_value.Text);
             R_value = Convert.ToDouble(textBox_R_value.Text);
-            frequency = Int32.Parse(textBox_freq.Text);
+            deltaU = Int32.Parse(textBox_freq.Text);
             amplitude = Convert.ToDouble(textBox_ampl.Text);
             fill = Int32.Parse(textBox_fill.Text);
         }
@@ -113,17 +112,17 @@ namespace projekt_RLC
             if (radioButton_triangle.Checked)
             {
                 signal_flag = "triangle";
-                input_signal = new signal(frequency, amplitude, 0, signal_flag, R_value,L_value,C_value);
+                input_signal = new signal(deltaU, amplitude, 0, signal_flag, R_value,L_value,C_value);
             }else if (radioButton_sine.Checked)
             {
                 signal_flag = "sine";
-                input_signal = new signal(frequency, amplitude, 0, signal_flag, R_value, L_value, C_value);
+                input_signal = new signal(deltaU, amplitude, 0, signal_flag, R_value, L_value, C_value);
             }else if (radioButton_square.Checked)
             {
                 signal_flag = "square";
                 label_fill.Visible = radioButton_square.Checked;
                 textBox_fill.Visible = radioButton_square.Checked;
-                input_signal = new signal(frequency, amplitude, fill, signal_flag, R_value, L_value, C_value);
+                input_signal = new signal(deltaU, amplitude, fill, signal_flag, R_value, L_value, C_value);
             }
         }
 

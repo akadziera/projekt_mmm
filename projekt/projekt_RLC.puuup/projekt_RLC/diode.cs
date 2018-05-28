@@ -13,15 +13,19 @@ namespace projekt_RLC
         private double Vt = 0.0258; // napiecie termiczne
         private double Is = 1 * 10 ^ (-12); // natezenie pradu nasycenia zlacza
         private double rz = 10; //rezystancja w kierunku zaporowym
-        private double Rd = 0.02;
+        private static double Rd = 0.02;
         double resistance;
         signal my_signal;
         
+        public double getRes()
+        {
+            return Rd;
+        }
         public List<double> getDiodeVoltage()
         {
             return _diodeVoltage;
         }
-        private List<double> _diodeVoltage = new List<double>();
+        public List<double> _diodeVoltage = new List<double>();
         public diode()
         {
             Vt = 0.0258; // napiecie termiczne
@@ -35,7 +39,7 @@ namespace projekt_RLC
             Is = saturation_current;
             rz = backward_resistance;
         }
-      private double set_current(double voltage)
+        private double set_current(double voltage)
         {
             if (voltage > 0.7)
             {
@@ -52,16 +56,6 @@ namespace projekt_RLC
             return current;
         }
 
-        private void DiodeVoltage(double current, double voltage)
-        {   
-            for(int i=0; i<my_signal.getCurrentSignal().Count(); i++)
-            {
-                double wartosc = voltage + my_signal.getCurrentSignal()[i] * Rd;
-                _diodeVoltage.Add(wartosc);
-            }
 
-            DiodeVoltage(current, voltage);
-
-        }
     }
 }
